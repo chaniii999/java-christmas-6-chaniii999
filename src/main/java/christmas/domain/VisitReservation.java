@@ -10,7 +10,6 @@ public class VisitReservation {
     public VisitReservation() {
         visitDate = new VisitDate();
         date = visitDate.getDate();
-        System.out.printf("%d", date);
     }
 
 }
