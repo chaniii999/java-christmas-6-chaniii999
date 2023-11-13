@@ -1,4 +1,4 @@
-package christmas.SystemMessage;
+package christmas.InputView;
 
 public enum InputViewMessage {
 

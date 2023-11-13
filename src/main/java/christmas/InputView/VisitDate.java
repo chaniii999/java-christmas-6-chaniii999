@@ -1,8 +1,8 @@
 package christmas.InputView;
 
-import static christmas.SystemMessage.InputViewMessage.INPUT_DATE;
-import static christmas.SystemMessage.InputViewMessage.OPENING_MENT;
-import static christmas.SystemMessage.OutputViewMessage.ERROR_DATE;
+import static christmas.InputView.InputViewMessage.INPUT_DATE;
+import static christmas.InputView.InputViewMessage.OPENING_MENT;
+import static christmas.OutputView.OutputViewMessage.ERROR_DATE;
 
 import camp.nextstep.edu.missionutils.Console;
 

@@ -1,4 +1,4 @@
-package christmas.SystemMessage;
+package christmas.OutputView;
 
 public enum OutputViewMessage {
 
@@ -15,7 +15,8 @@ public enum OutputViewMessage {
 
     ERROR_DATE("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요."),
     ERROR_ORDER("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요."),
-    ERROR_ONLY_DRINK("[ERROR] 음료만 주문하는 것은 불가능합니다. 다시 입력해 주세요.");
+    ERROR_ONLY_DRINK("[ERROR] 음료만 주문하는 것은 불가능합니다. 다시 입력해 주세요."),
+    ERROR_OVER_COUNT("[ERROR] 총 20개까지 주문 가능합니다. 다시 입력해 주세요.");
 
     private final String Form;
 
