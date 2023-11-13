@@ -1,16 +1,33 @@
 package christmas.model;
 
+import christmas.service.AllMenu;
 import java.util.ArrayList;
+import java.util.List;
 
-public class OrderSheet {
+public class OrderSheet extends AllMenu {
 
-    private final ArrayList<Menu> orderSheet = new ArrayList<Menu>();
+    private final String MENU_SEPARATOR = "-";
 
-    public OrderSheet(String[] orderMenu) {
-        validateOrderMenu(orderMenu);
+    private final List<Menu> orderSheet = new ArrayList<>();
+
+    private int totalAmount = 0;
+
+
+    public OrderSheet(String[] orderMenu, AllMenu allmenu) {
+        generateOrderSheet(orderMenu, allmenu);
     }
 
-    private void validateOrderMenu(String[] orderMenu) {
-
+    private void generateOrderSheet(String[] orderMenu, AllMenu menu) {
+        for (String order : orderMenu) {
+            String menuName = order.split(MENU_SEPARATOR)[0];
+            int count = Integer.parseInt(order.split(MENU_SEPARATOR)[1]);
+            totalAmount += searchPrice(menuName);
+            orderSheet.add(new Menu(menuName, searchPrice(menuName), searchType(menuName),count));
+        }
     }
+
+    public List<Menu> getOrderSheet() {
+        return orderSheet;
+    }
+
 }

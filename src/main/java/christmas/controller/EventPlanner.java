@@ -1,18 +1,21 @@
 package christmas.controller;
 
-import christmas.InputView.OrderMenu;
+import christmas.domain.TakeOrder;
 import christmas.domain.VisitReservation;
+import christmas.model.Menu;
 import christmas.service.AllMenu;
+import java.util.List;
 
 public class EventPlanner {
 
     VisitReservation visitReservation;
     AllMenu allMenu;
-    OrderMenu orderMenu;
+    TakeOrder takeOrder;
 
     public void takeOrder() {
         visitReservation = new VisitReservation();
         allMenu = new AllMenu();
-        orderMenu = new OrderMenu(allMenu);
+        takeOrder = new TakeOrder(allMenu);
+        List<Menu> orderSheet = takeOrder.getOrderSheet();
     }
 }

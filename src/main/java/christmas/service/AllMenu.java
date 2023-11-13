@@ -45,7 +45,7 @@ public class AllMenu {
         List<Menu> allMenu = new ArrayList<>();
 
         for (int i = 0; i < name.size(); i++) {
-            Menu menu = new Menu(name.get(i), price.get(i), type.get(i));
+            Menu menu = new Menu(name.get(i), price.get(i), type.get(i), 0);
             allMenu.add(menu);
         }
         return allMenu;
