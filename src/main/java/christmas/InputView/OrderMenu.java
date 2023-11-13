@@ -1,0 +1,87 @@
+package christmas.InputView;
+
+import static christmas.InputView.InputViewMessage.INPUT_MENU;
+import static christmas.OutputView.OutputViewMessage.ERROR_ONLY_DRINK;
+import static christmas.OutputView.OutputViewMessage.ERROR_ORDER;
+import static christmas.OutputView.OutputViewMessage.ERROR_OVER_COUNT;
+
+import camp.nextstep.edu.missionutils.Console;
+import christmas.service.AllMenu;
+import java.util.HashSet;
+import java.util.Set;
+
+public class OrderMenu {
+    private final String ORDER_FORMAT = "^[가-힣]+-\\\\d$";
+    private final String ORDER_SEPARATOR = ",";
+    private final String MENU_SEPARATOR = "-";
+    private final int MIN_COUNT = 1;
+    private final int MAX_TOTAL = 20;
+
+    private final String[] menuItems;
+
+
+    public OrderMenu (AllMenu allMenu) {
+        System.out.println(INPUT_MENU.getMessage());
+        this.menuItems = validateInput(allMenu);
+    }
+
+    private String[] validateInput(AllMenu allMenu) {
+        String[] orderSheet;
+        while (true) {
+            try {
+                String input = Console.readLine();
+                orderSheet = input.split(ORDER_SEPARATOR);
+                validateFormat(orderSheet);
+                hasDuplicate(orderSheet, allMenu);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return orderSheet;
+    }
+
+    private void validateFormat(String[] input) {
+        int totalMenuCount = 0;
+
+        for (String order : input) {
+            if (!order.matches(ORDER_FORMAT))
+                throw new IllegalArgumentException(ERROR_ORDER.getForm());
+
+            int foodCount= Integer.parseInt(order.split(MENU_SEPARATOR)[1]);
+            if (foodCount < MIN_COUNT)
+                throw new IllegalArgumentException(ERROR_ORDER.getForm());
+            totalMenuCount += foodCount;
+        }
+        if (totalMenuCount > MAX_TOTAL)
+            throw new IllegalArgumentException(ERROR_OVER_COUNT.getForm());
+    }
+
+    private void hasDuplicate(String[] input, AllMenu allMenu) {
+        Set<String> noDup = new HashSet<>();
+
+        for (String order : input) {
+            String menuName = order.substring(0, order.indexOf('-'));
+            if (!noDup.add(menuName))
+                throw new IllegalArgumentException(ERROR_ORDER.getForm());
+        }
+        hasOnlyDrink(noDup, allMenu);
+    }
+
+    private void hasOnlyDrink(Set<String> noDup,AllMenu allMenu) {
+        int drinkCount = 0;
+
+        for (String order : noDup) {
+            if (allMenu.searchType(order).equals("음료"))
+                drinkCount++;
+        }
+        if (drinkCount == noDup.size())
+            throw new IllegalArgumentException(ERROR_ONLY_DRINK.getForm());
+    }
+
+    public String[] getMenuItems() {
+        return menuItems;
+    }
+
+
+}
