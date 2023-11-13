@@ -1,6 +1,5 @@
 package christmas.model;
 
-import christmas.service.Menu;
 import java.util.ArrayList;
 
 public class OrderSheet {

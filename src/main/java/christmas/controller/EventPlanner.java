@@ -12,7 +12,6 @@ public class EventPlanner {
 
     public void takeOrder() {
         visitReservation = new VisitReservation();
-
         allMenu = new AllMenu();
         orderMenu = new OrderMenu(allMenu);
     }

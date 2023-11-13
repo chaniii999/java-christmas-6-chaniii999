@@ -2,6 +2,7 @@ package christmas.service;
 
 import static christmas.OutputView.OutputViewMessage.ERROR_ORDER;
 
+import christmas.model.Menu;
 import java.util.ArrayList;
 import java.util.List;
 

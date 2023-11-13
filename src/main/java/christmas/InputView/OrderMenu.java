@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class OrderMenu {
-    private final String ORDER_FORMAT = "^[가-힣]+-\\\\d$";
+    private final String ORDER_FORMAT = "^[가-힣]+-\\d+$";
     private final String ORDER_SEPARATOR = ",";
     private final String MENU_SEPARATOR = "-";
     private final int MIN_COUNT = 1;
@@ -47,7 +47,6 @@ public class OrderMenu {
         for (String order : input) {
             if (!order.matches(ORDER_FORMAT))
                 throw new IllegalArgumentException(ERROR_ORDER.getForm());
-
             int foodCount= Integer.parseInt(order.split(MENU_SEPARATOR)[1]);
             if (foodCount < MIN_COUNT)
                 throw new IllegalArgumentException(ERROR_ORDER.getForm());
@@ -61,7 +60,7 @@ public class OrderMenu {
         Set<String> noDup = new HashSet<>();
 
         for (String order : input) {
-            String menuName = order.substring(0, order.indexOf('-'));
+            String menuName= order.split(MENU_SEPARATOR)[0];
             if (!noDup.add(menuName))
                 throw new IllegalArgumentException(ERROR_ORDER.getForm());
         }

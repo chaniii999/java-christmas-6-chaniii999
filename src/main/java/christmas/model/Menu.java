@@ -1,4 +1,4 @@
-package christmas.service;
+package christmas.model;
 
 public class Menu {
     private final String name;
