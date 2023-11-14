@@ -1,34 +1,36 @@
 package christmas.model.Events;
 
+import static christmas.DateSettings.CHRIST_MAS;
+
 import christmas.model.OrderSheet;
 
 public class XmasDdayDiscount extends Event{
     private final int DISCOUNT = 900;
-    private final int  CHRISTMAX = 25;
 
     {
         initEventName = "크리스마스 디데이 할인";
         discount = DISCOUNT;
-        endDate = CHRISTMAX;
+        endDate = CHRIST_MAS.getValue();
     }
 
     @Override
     protected boolean validateDate(int date) {
         int result = 0;
         int day = getDay(date);
+
         if (validDays.contains(day) || validDays.isEmpty())
             result++;
-        if (startDate <= date && CHRISTMAX >= date)
+        if (startDate <= date && CHRIST_MAS.getValue() >= date)
             result++;
         return (result == 2);
     }
 
     @Override
-    protected void applyBenefits(OrderSheet orderSheet,int date) {
+    protected void applyBenefits(OrderSheet orderSheet, int date) {
         totalDiscount -= DISCOUNT + date * 100;
     }
 
-    public XmasDdayDiscount(OrderSheet orderSheet,int date) {
+    public XmasDdayDiscount(OrderSheet orderSheet, int date) {
         super(orderSheet, date);
     }
 

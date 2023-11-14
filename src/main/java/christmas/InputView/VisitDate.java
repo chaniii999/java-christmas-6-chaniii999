@@ -1,7 +1,7 @@
 package christmas.InputView;
 
-import static christmas.Enums.END_DATE;
-import static christmas.Enums.START_DATE;
+import static christmas.DateSettings.END_DATE;
+import static christmas.DateSettings.START_DATE;
 import static christmas.InputView.InputViewMessage.INPUT_DATE;
 import static christmas.InputView.InputViewMessage.OPENING_MENT;
 import static christmas.OutputView.OutputViewMessage.ERROR_DATE;

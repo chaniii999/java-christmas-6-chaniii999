@@ -1,15 +1,16 @@
 package christmas;
 
-public enum Enums {
-    YEAR(23),
-    MONTH(12),
+public enum DateSettings {
+    CURRENT_YEAR(23),
+    CURRENT_MONTH(12),
     START_DATE(1),
-    END_DATE(31);
+    END_DATE(31),
+    CHRIST_MAS(25);
 
     private final int value;
 
 
-    Enums(int value) {
+    DateSettings(int value) {
         this.value = value;
     }
 

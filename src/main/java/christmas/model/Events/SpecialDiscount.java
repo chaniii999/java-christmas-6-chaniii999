@@ -1,5 +1,7 @@
 package christmas.model.Events;
 
+import static christmas.DateSettings.CHRIST_MAS;
+
 import christmas.model.OrderSheet;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,7 @@ public class SpecialDiscount extends Event {
         discount = 1000;
     }
 
-    private final int  CHRISTMAX = 25;
+    private final int CHRISTMAS = CHRIST_MAS.getValue();
     private final int copyDiscount = discount;
 
 
@@ -20,7 +22,7 @@ public class SpecialDiscount extends Event {
         List<Integer> copyValidDays = new ArrayList<Integer>(validDays);
         int result = 0;
         int day = getDay(date);
-        if (copyValidDays.contains(day) || date == CHRISTMAX)
+        if (copyValidDays.contains(day) || date == CHRISTMAS)
             result++;
         if (startDate <= date && endDate >= date)
             result++;

@@ -1,6 +1,13 @@
 package christmas.model.Events;
 
 
+
+
+import static christmas.DateSettings.CURRENT_MONTH;
+import static christmas.DateSettings.CURRENT_YEAR;
+import static christmas.DateSettings.END_DATE;
+import static christmas.DateSettings.START_DATE;
+
 import christmas.model.Menu;
 import christmas.model.OrderSheet;
 import java.time.LocalDate;
@@ -9,17 +16,18 @@ import java.util.List;
 
 public class Event {
     protected String initEventName = "이벤트 이름";
-    protected int startDate = 1;
-    protected int endDate = 31;
+    protected int startDate = START_DATE.getValue();
+    protected int endDate = END_DATE.getValue();
     protected List<Integer> validDays = new ArrayList<>();
     protected int discount = 0;
     protected int totalDiscount = 0;
     protected String applyType = "";
     protected boolean freeCondition = false;
     protected int freeCount = 1;
+    protected final int YEAR = CURRENT_YEAR.getValue();
+    protected final int MONTH = CURRENT_MONTH.getValue();
 
-    private final int YEAR = 2023;
-    private final int MONTH = 12;
+
 
     public Event(OrderSheet orderSheet, int date) {
         if (validateDate(date))
