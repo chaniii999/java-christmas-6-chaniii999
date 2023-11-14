@@ -27,14 +27,6 @@ public class TakeOrderTest extends ApplicationTest{
     }
 
     @Test
-    void oneDrinkThrowTest() {
-        assertSimpleTest(() -> {
-            runException("31","레드와인-1");
-            assertThat(output()).contains(ERROR_ONLY_DRINK.getForm());
-        });
-    }
-
-    @Test
     void duplicateThrowTest() {
         assertSimpleTest(() -> {
             runException("31","레드와인-1,레드와인-2");

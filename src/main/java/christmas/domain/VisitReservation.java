@@ -5,12 +5,11 @@ import christmas.InputView.VisitDate;
 
 public class VisitReservation {
 
-    private final VisitDate visitDate;
     private final int date;
 
     public VisitReservation() {
-        visitDate = new VisitDate();
-        date = visitDate.getDate();
+        VisitDate visitDate = new VisitDate();
+        this.date = visitDate.getDate();
     }
 
     public int getVisitDate() {

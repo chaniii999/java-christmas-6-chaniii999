@@ -1,21 +1,29 @@
 package christmas.controller;
 
+import christmas.domain.ApplyBenefits;
+import christmas.domain.PreviewBenefits;
 import christmas.domain.TakeOrder;
 import christmas.domain.VisitReservation;
-import christmas.model.Menu;
-import christmas.service.AllMenu;
-import java.util.List;
+import christmas.model.OrderSheet;
+import christmas.domain.AllMenu;
 
 public class EventPlanner {
 
-    VisitReservation visitReservation;
-    AllMenu allMenu;
-    TakeOrder takeOrder;
+    private final AllMenu allMenu;
+    private final VisitReservation visitReservation;
+    private final TakeOrder takeOrder;
+    private final OrderSheet orderSheet;
+    private final ApplyBenefits applyBenefits;
+    private final PreviewBenefits previewBenefits;
 
-    public void takeOrder() {
-        visitReservation = new VisitReservation();
+    public EventPlanner() {
         allMenu = new AllMenu();
+        visitReservation = new VisitReservation();
+        int date = visitReservation.getVisitDate();
         takeOrder = new TakeOrder(allMenu);
-        List<Menu> orderSheet = takeOrder.getOrderSheet();
+        orderSheet = takeOrder.getOrderSheet();
+        applyBenefits = new ApplyBenefits(orderSheet, date);
+        previewBenefits = new PreviewBenefits(orderSheet, applyBenefits.getAllEvent(), date);
     }
+
 }

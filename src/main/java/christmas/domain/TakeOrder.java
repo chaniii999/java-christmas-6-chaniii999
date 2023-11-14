@@ -2,24 +2,19 @@ package christmas.domain;
 
 
 import christmas.InputView.OrderMenu;
-import christmas.model.Menu;
 import christmas.model.OrderSheet;
-import christmas.service.AllMenu;
-import java.util.List;
 
 public class TakeOrder {
 
 
-    private final List<Menu> orderItems;
+    private final OrderSheet orderSheet;
 
     public TakeOrder(AllMenu allMenu) {
         OrderMenu orderMenu = new OrderMenu(allMenu);
-        OrderSheet orderSheet = new OrderSheet(orderMenu.getMenuItems(), allMenu);
-        orderItems = orderSheet.getOrderSheet();
+        orderSheet = new OrderSheet(orderMenu.getMenuItems(), allMenu);
     }
 
-    public List<Menu> getOrderSheet() {
-        return orderItems;
+    public OrderSheet getOrderSheet() {
+        return orderSheet;
     }
-
 }
