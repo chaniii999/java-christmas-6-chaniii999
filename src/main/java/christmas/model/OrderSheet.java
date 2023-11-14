@@ -12,10 +12,10 @@ public class OrderSheet extends AllMenu {
     private int totalAmount = 0;
 
     public OrderSheet(String[] orderMenu, AllMenu allmenu) {
-        generateOrderSheet(orderMenu, allmenu);
+        generateOrderSheet(orderMenu);
     }
 
-    private void generateOrderSheet(String[] orderMenu, AllMenu menu) {
+    private void generateOrderSheet(String[] orderMenu) {
         for (String order : orderMenu) {
             String menuName = order.split(MENU_SEPARATOR)[0];
             int count = Integer.parseInt(order.split(MENU_SEPARATOR)[1]);

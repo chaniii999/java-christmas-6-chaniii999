@@ -15,13 +15,13 @@ public class GiveawayEvent extends Event{
 
     @Override
     protected void applyBenefits(OrderSheet orderSheet, int date) {
-        if (isMeetCondition(orderSheet, date)) {
+        if (isMeetCondition(orderSheet)) {
             freeCondition = true;
             totalDiscount -= sonDiscount;
         }
     }
 
-    private boolean isMeetCondition(OrderSheet orderSheet, int date) {
+    private boolean isMeetCondition(OrderSheet orderSheet) {
         return (orderSheet.getTotalAmount() >= MIN_FREE);
     }
 
