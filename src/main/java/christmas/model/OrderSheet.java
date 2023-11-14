@@ -11,7 +11,7 @@ public class OrderSheet extends AllMenu {
     private final List<Menu> orderSheet = new ArrayList<>();
     private int totalAmount = 0;
 
-    public OrderSheet(String[] orderMenu, AllMenu allmenu) {
+    public OrderSheet(String[] orderMenu) {
         generateOrderSheet(orderMenu);
     }
 

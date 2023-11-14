@@ -11,7 +11,7 @@ public class TakeOrder {
 
     public TakeOrder(AllMenu allMenu) {
         OrderMenu orderMenu = new OrderMenu(allMenu);
-        orderSheet = new OrderSheet(orderMenu.getMenuItems(), allMenu);
+        orderSheet = new OrderSheet(orderMenu.getMenuItems());
     }
 
     public OrderSheet getOrderSheet() {

@@ -19,7 +19,7 @@ public class SpecialDiscount extends Event {
 
     @Override
     protected boolean validateDate(int date) {
-        List<Integer> copyValidDays = new ArrayList<Integer>(validDays);
+        List<Integer> copyValidDays = new ArrayList<>(validDays);
         int result = 0;
         int day = getDay(date);
         if (copyValidDays.contains(day) || date == CHRISTMAS)
