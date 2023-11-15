@@ -1,7 +1,7 @@
 package christmas;
 
 public enum DateSettings {
-    CURRENT_YEAR(23),
+    CURRENT_YEAR(2023),
     CURRENT_MONTH(12),
     START_DATE(1),
     END_DATE(31),
