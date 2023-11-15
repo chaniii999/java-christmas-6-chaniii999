@@ -12,25 +12,71 @@ public class EventTest extends ApplicationTest{
         assertSimpleTest(() -> {
             run("3", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
             assertThat(output()).contains(
-                "<주문 메뉴>",
-                "<할인 전 총주문 금액>",
                 "<증정 메뉴>",
                 "샴페인 1개",
                 "<혜택 내역>",
-                "<총혜택 금액>",
-                "<할인 후 예상 결제 금액>",
-                "<12월 이벤트 배지>",
-                "산타"
+                "증정 이벤트: -25,000원"
             );
         });
     }
 
     @Test
-    void XmasTest() {
+    void nonGiveawayTest() {
+        assertSimpleTest(() -> {
+            run("3", "초코케이크-2,제로콜라-1");
+            assertThat(output()).doesNotContain(
+                "샴페인 1개",
+                "증정 이벤트: -25,000원"
+            );
+        });
+    }
+
+    @Test
+    void xmasDdayTest() {
+        assertSimpleTest(() -> {
+            run("25", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            assertThat(output()).contains(
+                "크리스마스 디데이 할인: -3,400원"
+            );
+        });
+    }
+
+    @Test
+    void nonXmasDdayTest() {
         assertSimpleTest(() -> {
             run("26", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
             assertThat(output()).doesNotContain(
                 "크리스마스 디데이 할인"
+            );
+        });
+    }
+
+    @Test
+    void specialXmasTest() {
+        assertSimpleTest(() -> {
+            run("25", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            assertThat(output()).contains(
+                "특별 할인: -1,000원"
+            );
+        });
+    }
+
+    @Test
+    void specialSundayTest() {
+        assertSimpleTest(() -> {
+            run("31", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            assertThat(output()).contains(
+                "특별 할인: -1,000원"
+            );
+        });
+    }
+
+    @Test
+    void nonSpecialTest() {
+        assertSimpleTest(() -> {
+            run("30", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            assertThat(output()).doesNotContain(
+                "특별 할인: -1,000원"
             );
         });
     }
@@ -44,5 +90,44 @@ public class EventTest extends ApplicationTest{
             );
         });
     }
+
+    @Test
+    void nonweekdayTest() {
+        assertSimpleTest(() -> {
+            run("15", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            assertThat(output()).doesNotContain(
+                "평일 할인"
+            );
+            run("16", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            assertThat(output()).contains(
+                "주말 할인"
+            );
+        });
+    }
+
+    @Test
+    void weekendTest() {
+        assertSimpleTest(() -> {
+            run("15", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            assertThat(output()).contains(
+                "주말 할인"
+            );
+            run("16", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            assertThat(output()).contains(
+                "주말 할인"
+            );
+        });
+    }
+
+    @Test
+    void nonweekendTest() {
+        assertSimpleTest(() -> {
+            run("18", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            assertThat(output()).doesNotContain(
+                "주말 할인"
+            );
+        });
+    }
+
 
 }
