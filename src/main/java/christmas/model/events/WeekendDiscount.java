@@ -1,4 +1,4 @@
-package christmas.model.Events;
+package christmas.model.events;
 
 import christmas.model.Menu;
 import christmas.model.OrderSheet;
@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WeekendDiscount extends Event {
-    private final List<Integer> sonValidDays = new ArrayList<>(List.of(5, 6));
-    private final int sonDiscount = 2023;
-    private final String sonApplyType = "메인";
+
+    private static final List<Integer> sonValidDays = new ArrayList<>(List.of(5, 6));
+    private static final int sonDiscount = 2023;
+    private static final String sonApplyType = "메인";
     {
         initEventName = "주말 할인";
         validDays = sonValidDays;
         applyType = sonApplyType;
         discount = sonDiscount;
     }
-
 
     @Override
     protected boolean validateDate(int date) {
@@ -36,6 +36,7 @@ public class WeekendDiscount extends Event {
                 totalDiscount -= sonDiscount * menu.getCount();
         }
     }
+
     public WeekendDiscount(OrderSheet orderSheet,int date) {
         super(orderSheet, date);
     }

@@ -13,6 +13,7 @@ public class PrintOrderSheet {
         System.out.printf(FORM_PREVIEW_EVENT.getForm(), date);
         System.out.println();
         System.out.println(ORDER_MENU.getForm());
+
         printOrderSheet(orderSheet);
     }
 

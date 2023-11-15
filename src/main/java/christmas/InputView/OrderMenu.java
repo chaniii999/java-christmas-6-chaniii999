@@ -11,11 +11,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class OrderMenu {
-    private final String ORDER_FORMAT = "^[가-힣]+-\\d+$";
-    private final String ORDER_SEPARATOR = ",";
-    private final String MENU_SEPARATOR = "-";
-    private final int MIN_COUNT = 1;
-    private final int MAX_TOTAL = 20;
+    private static final String ORDER_FORMAT = "^[가-힣]+-\\d+$";
+    private static final String ORDER_SEPARATOR = ",";
+    private static final String MENU_SEPARATOR = "-";
+    private static final int MIN_COUNT = 1;
+    private static final int MAX_TOTAL = 20;
 
     private final String[] menuItems;
 

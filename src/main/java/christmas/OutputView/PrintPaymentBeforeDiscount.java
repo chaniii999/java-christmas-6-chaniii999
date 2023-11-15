@@ -9,6 +9,7 @@ public class PrintPaymentBeforeDiscount {
 
     public PrintPaymentBeforeDiscount(OrderSheet orderSheet) {
         int totalAmount = orderSheet.getTotalAmount();
+
         System.out.println(PAYMENT_BEFORE_DISCOUNT.getForm());
         System.out.printf(FORM_PAYMENT.getForm(), totalAmount);
         System.out.println();

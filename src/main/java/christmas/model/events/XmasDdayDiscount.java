@@ -1,12 +1,13 @@
-package christmas.model.Events;
+package christmas.model.events;
 
 import static christmas.DateSettings.CHRIST_MAS;
 
 import christmas.model.OrderSheet;
 
 public class XmasDdayDiscount extends Event{
-    private final int sonDiscount = 900;
-    private final int sonEndDate = CHRIST_MAS.getValue();
+
+    private static final int sonDiscount = 900;
+    private static final int sonEndDate = CHRIST_MAS.getValue();
     {
         initEventName = "크리스마스 디데이 할인";
         discount = sonDiscount;

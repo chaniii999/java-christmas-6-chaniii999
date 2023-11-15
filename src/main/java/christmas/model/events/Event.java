@@ -1,7 +1,4 @@
-package christmas.model.Events;
-
-
-
+package christmas.model.events;
 
 import static christmas.DateSettings.CHRIST_MAS;
 import static christmas.DateSettings.CURRENT_MONTH;
@@ -16,20 +13,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Event {
-    protected String initEventName = "이벤트 이름";
-    protected int startDate = START_DATE.getValue();
-    protected int endDate = END_DATE.getValue();
-    protected List<Integer> validDays = new ArrayList<>();
-    protected int discount = 0;
-    protected int totalDiscount = 0;
-    protected String applyType = "";
-    protected boolean freeCondition = false;
-    protected int freeCount = 1;
+
     protected final int YEAR = CURRENT_YEAR.getValue();
     protected final int MONTH = CURRENT_MONTH.getValue();
     protected final int X_MAS = CHRIST_MAS.getValue();
 
+    protected String initEventName = "이벤트 이름";
 
+    protected int startDate = START_DATE.getValue();
+    protected int endDate = END_DATE.getValue();
+
+    protected List<Integer> validDays = new ArrayList<>();
+
+    protected int discount = 0;
+    protected int totalDiscount = 0;
+
+    protected String applyType = "";
+
+    protected boolean freeCondition = false;
+    protected int freeCount = 1;
 
     public Event(OrderSheet orderSheet, int date) {
         if (validateDate(date))
@@ -57,6 +59,7 @@ public class Event {
         LocalDate localDate = LocalDate.of(YEAR, MONTH, date);
         return localDate.getDayOfWeek().getValue();
     }
+
     public String getEventName() {
         return initEventName;
     }

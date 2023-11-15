@@ -1,11 +1,9 @@
 package christmas.domain;
 
-
 import christmas.InputView.OrderMenu;
 import christmas.model.OrderSheet;
 
 public class TakeOrder {
-
 
     private final OrderSheet orderSheet;
 

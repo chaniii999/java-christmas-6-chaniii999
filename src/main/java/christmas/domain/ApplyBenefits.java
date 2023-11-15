@@ -4,7 +4,7 @@ import christmas.model.OrderSheet;
 
 public class ApplyBenefits {
 
-    private final int MIN_APPLY_BENEFITS = 10000;
+    private static final int MIN_APPLY_BENEFITS = 10000;
 
     private AllEvent allEvent;
 
@@ -17,6 +17,7 @@ public class ApplyBenefits {
     private boolean isEventEnabled(int totalAmount) {
         return (totalAmount >= MIN_APPLY_BENEFITS);
     }
+
     public AllEvent getAllEvent() {
         return allEvent;
     }

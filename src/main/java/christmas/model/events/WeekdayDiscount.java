@@ -1,4 +1,4 @@
-package christmas.model.Events;
+package christmas.model.events;
 
 import christmas.model.Menu;
 import christmas.model.OrderSheet;
@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WeekdayDiscount extends Event {
-    private final List<Integer> sonValidDays = new ArrayList<>(List.of(1, 2, 3, 4, 7));
-    private final int sonDiscount = 2023;
-    private final String sonApplyType = "디저트";
+
+    private static final List<Integer> sonValidDays = new ArrayList<>(List.of(1, 2, 3, 4, 7));
+    private static final int sonDiscount = 2023;
+    private static final String sonApplyType = "디저트";
     {
         initEventName = "평일 할인";
         validDays = sonValidDays;

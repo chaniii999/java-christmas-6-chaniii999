@@ -4,10 +4,11 @@ import static christmas.OutputView.OutputViewMessage.BENEFITS;
 import static christmas.OutputView.OutputViewMessage.FORM_BENEFIT;
 import static christmas.OutputView.OutputViewMessage.NO_BENEFIT;
 
-import christmas.model.Events.Event;
+import christmas.model.events.Event;
 import java.util.List;
 
 public class PrintBenefitsDetails {
+
     public PrintBenefitsDetails(List<Event> events) {
         System.out.println(BENEFITS.getForm());
         boolean benefits = false;
@@ -24,6 +25,7 @@ public class PrintBenefitsDetails {
 
     private boolean printBenefitsDetails(List<Event> events) {
         boolean benefit = false;
+
         for (Event event : events) {
             if (event.getTotalDiscount() != 0) {
                 String eventName = event.getEventName();

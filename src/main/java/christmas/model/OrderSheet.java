@@ -6,7 +6,7 @@ import java.util.List;
 
 public class OrderSheet extends AllMenu {
 
-    private final String MENU_SEPARATOR = "-";
+    private static final String MENU_SEPARATOR = "-";
 
     private final List<Menu> orderSheet = new ArrayList<>();
     private int totalAmount = 0;
@@ -18,6 +18,7 @@ public class OrderSheet extends AllMenu {
     private void generateOrderSheet(String[] orderMenu) {
         for (String order : orderMenu) {
             String menuName = order.split(MENU_SEPARATOR)[0];
+
             int count = Integer.parseInt(order.split(MENU_SEPARATOR)[1]);
             totalAmount += searchPrice(menuName) * count;
 

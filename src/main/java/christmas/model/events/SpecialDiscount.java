@@ -1,4 +1,4 @@
-package christmas.model.Events;
+package christmas.model.events;
 
 import christmas.model.OrderSheet;
 import java.util.ArrayList;
@@ -6,8 +6,8 @@ import java.util.List;
 
 public class SpecialDiscount extends Event {
 
-    private final List<Integer> sonValidDays = new ArrayList<>(List.of(7));
-    private final int sonDiscount = 1000;
+    private static final List<Integer> sonValidDays = new ArrayList<>(List.of(7));
+    private static final int sonDiscount = 1000;
     {
         initEventName = "특별 할인";
         validDays = sonValidDays;
@@ -19,6 +19,7 @@ public class SpecialDiscount extends Event {
         List<Integer> sonValidDays = new ArrayList<>(List.of(7));
         int result = 0;
         int day = getDay(date);
+
         if (date == X_MAS || sonValidDays.contains(day))
             result++;
         if (startDate <= date && endDate >= date)

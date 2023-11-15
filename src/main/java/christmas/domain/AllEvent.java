@@ -1,16 +1,17 @@
 package christmas.domain;
 
-import christmas.model.Events.Event;
+import christmas.model.events.Event;
 import christmas.model.OrderSheet;
-import christmas.model.Events.GiveawayEvent;
-import christmas.model.Events.SpecialDiscount;
-import christmas.model.Events.WeekdayDiscount;
-import christmas.model.Events.WeekendDiscount;
-import christmas.model.Events.XmasDdayDiscount;
+import christmas.model.events.GiveawayEvent;
+import christmas.model.events.SpecialDiscount;
+import christmas.model.events.WeekdayDiscount;
+import christmas.model.events.WeekendDiscount;
+import christmas.model.events.XmasDdayDiscount;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AllEvent {
+
     private final List<Event> allEvent = new ArrayList<>();
     private int totalDiscount = 0;
 

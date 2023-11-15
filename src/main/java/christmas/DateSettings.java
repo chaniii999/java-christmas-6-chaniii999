@@ -9,7 +9,6 @@ public enum DateSettings {
 
     private final int value;
 
-
     DateSettings(int value) {
         this.value = value;
     }

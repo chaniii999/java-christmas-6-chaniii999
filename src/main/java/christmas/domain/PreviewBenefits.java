@@ -8,15 +8,12 @@ import christmas.OutputView.PrintOrderSheet;
 import christmas.OutputView.PrintPaymentBeforeDiscount;
 import christmas.OutputView.PrintTotalBenefitAmount;
 import christmas.model.Badge;
-import christmas.model.Events.Event;
+import christmas.model.events.Event;
 import christmas.model.OrderSheet;
 import java.util.Collections;
 import java.util.List;
 
 public class PreviewBenefits {
-
-    private final int MIN_FREE_CONDITION = 120000;
-    private final int CHAMPAGNE = 25000;
 
     Badge badge;
     PrintOrderSheet printOrderSheet;
@@ -53,8 +50,11 @@ public class PreviewBenefits {
 
     private int getExpectPayment(OrderSheet orderSheet, AllEvent allEvent) {
         int result = orderSheet.getTotalAmount() + getTotalBenefitAmount(allEvent);
-        if (orderSheet.getTotalAmount() >= MIN_FREE_CONDITION)
-           result += CHAMPAGNE;
+
+        for (Event event : getAllEvent(allEvent)) {
+            if (event.getFreeCondition())
+                result += event.getTotalDiscount();
+        }
         return result;
     }
 }

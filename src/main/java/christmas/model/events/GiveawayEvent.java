@@ -1,17 +1,17 @@
-package christmas.model.Events;
+package christmas.model.events;
 
 import christmas.model.OrderSheet;
 
 public class GiveawayEvent extends Event{
-    private final int MIN_FREE = 120000;
-    private final int sonDiscount = 25000;
-    private final String sonApplyType = "샴페인";
+
+    private static final int MIN_FREE = 120000;
+    private static final int sonDiscount = 25000;
+    private static final String sonApplyType = "샴페인";
     {
         initEventName = "증정 이벤트";
         applyType = sonApplyType;
         discount = sonDiscount;
     }
-
 
     @Override
     protected void applyBenefits(OrderSheet orderSheet, int date) {

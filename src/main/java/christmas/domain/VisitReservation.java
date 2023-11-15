@@ -2,7 +2,6 @@ package christmas.domain;
 
 import christmas.InputView.VisitDate;
 
-
 public class VisitReservation {
 
     private final int date;

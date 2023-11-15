@@ -4,7 +4,7 @@ import static christmas.OutputView.OutputViewMessage.FORM_MENU;
 import static christmas.OutputView.OutputViewMessage.GIVEAWAY_MENU;
 import static christmas.OutputView.OutputViewMessage.NO_BENEFIT;
 
-import christmas.model.Events.Event;
+import christmas.model.events.Event;
 import java.util.List;
 
 public class PrintGiveawayMenu {

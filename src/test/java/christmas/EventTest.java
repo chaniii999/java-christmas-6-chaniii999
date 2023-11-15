@@ -84,7 +84,7 @@ public class EventTest extends ApplicationTest{
     @Test
     void weekdayTest() {
         assertSimpleTest(() -> {
-            run("18", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            run("18", "초코케이크-2,제로콜라-1");
             assertThat(output()).contains(
                 "평일 할인"
             );
@@ -99,8 +99,8 @@ public class EventTest extends ApplicationTest{
                 "평일 할인"
             );
             run("16", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
-            assertThat(output()).contains(
-                "주말 할인"
+            assertThat(output()).doesNotContain(
+                "평일 할인"
             );
         });
     }
@@ -122,7 +122,11 @@ public class EventTest extends ApplicationTest{
     @Test
     void nonweekendTest() {
         assertSimpleTest(() -> {
-            run("18", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            run("14", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
+            assertThat(output()).doesNotContain(
+                "주말 할인"
+            );
+            run("17", "티본스테이크-1,바비큐립-1,초코케이크-2,제로콜라-1");
             assertThat(output()).doesNotContain(
                 "주말 할인"
             );
