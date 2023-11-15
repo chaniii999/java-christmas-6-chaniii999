@@ -5,12 +5,12 @@ import static christmas.DateSettings.CHRIST_MAS;
 import christmas.model.OrderSheet;
 
 public class XmasDdayDiscount extends Event{
-    private final int DISCOUNT = 900;
-
+    private final int sonDiscount = 900;
+    private final int sonEndDate = CHRIST_MAS.getValue();
     {
         initEventName = "크리스마스 디데이 할인";
-        discount = DISCOUNT;
-        endDate = CHRIST_MAS.getValue();
+        discount = sonDiscount;
+        endDate = sonEndDate;
     }
 
     @Override
@@ -27,7 +27,7 @@ public class XmasDdayDiscount extends Event{
 
     @Override
     protected void applyBenefits(OrderSheet orderSheet, int date) {
-        totalDiscount -= DISCOUNT + date * 100;
+        totalDiscount -= sonDiscount + date * 100;
     }
 
     public XmasDdayDiscount(OrderSheet orderSheet, int date) {

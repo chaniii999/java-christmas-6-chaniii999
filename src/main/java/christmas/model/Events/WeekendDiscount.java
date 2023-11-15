@@ -19,9 +19,10 @@ public class WeekendDiscount extends Event {
 
     @Override
     protected boolean validateDate(int date) {
+        List<Integer> sonValidDays = new ArrayList<>(List.of(5, 6));
         int result = 0;
         int day = getDay(date);
-        if (validDays.contains(day))
+        if (sonValidDays.contains(day))
             result++;
         if (startDate <= date && endDate >= date)
             result++;

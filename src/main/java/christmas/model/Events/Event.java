@@ -3,6 +3,7 @@ package christmas.model.Events;
 
 
 
+import static christmas.DateSettings.CHRIST_MAS;
 import static christmas.DateSettings.CURRENT_MONTH;
 import static christmas.DateSettings.CURRENT_YEAR;
 import static christmas.DateSettings.END_DATE;
@@ -26,6 +27,7 @@ public class Event {
     protected int freeCount = 1;
     protected final int YEAR = CURRENT_YEAR.getValue();
     protected final int MONTH = CURRENT_MONTH.getValue();
+    protected final int X_MAS = CHRIST_MAS.getValue();
 
 
 

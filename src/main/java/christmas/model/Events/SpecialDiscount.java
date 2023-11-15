@@ -1,28 +1,25 @@
 package christmas.model.Events;
 
-import static christmas.DateSettings.CHRIST_MAS;
-
 import christmas.model.OrderSheet;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SpecialDiscount extends Event {
 
-    private final List<Integer> copyValiddays = new ArrayList<>(List.of(1));
-    private final int CHRISTMAS = CHRIST_MAS.getValue();
-    private final int copyDiscount = 1000;
+    private final List<Integer> sonValidDays = new ArrayList<>(List.of(7));
+    private final int sonDiscount = 1000;
     {
         initEventName = "특별 할인";
-        validDays = copyValiddays;
-        discount = copyDiscount;
+        validDays = sonValidDays;
+        discount = sonDiscount;
     }
 
     @Override
     protected boolean validateDate(int date) {
-        List<Integer> copyValidDays = new ArrayList<>(validDays);
+        List<Integer> sonValidDays = new ArrayList<>(List.of(7));
         int result = 0;
         int day = getDay(date);
-        if (copyValidDays.contains(day) || date == CHRISTMAS)
+        if (date == X_MAS || sonValidDays.contains(day))
             result++;
         if (startDate <= date && endDate >= date)
             result++;
@@ -31,7 +28,7 @@ public class SpecialDiscount extends Event {
 
     @Override
     protected void applyBenefits(OrderSheet orderSheet, int date) {
-        totalDiscount -= copyDiscount;
+        totalDiscount -= sonDiscount;
     }
 
     public SpecialDiscount(OrderSheet orderSheet,int date) {
