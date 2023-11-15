@@ -59,8 +59,7 @@ public class AllMenu {
             if (menuName.equals(menu.getName()))
                 return menu.getType();
         }
-        //throw new IllegalArgumentException(ERROR_ORDER.getForm());
-        throw new IllegalArgumentException("없는메뉴");
+        throw new IllegalArgumentException(ERROR_ORDER.getForm());
     }
 
 }

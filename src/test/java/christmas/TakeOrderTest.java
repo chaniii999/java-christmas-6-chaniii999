@@ -29,7 +29,7 @@ public class TakeOrderTest extends ApplicationTest{
     @Test
     void duplicateThrowTest() {
         assertSimpleTest(() -> {
-            runException("31","레드와인-1,레드와인-2");
+            runException("31","레드와인-1,레드와인-2,티본스테이크-4");
             assertThat(output()).contains(ERROR_ORDER.getForm());
         });
     }
@@ -47,8 +47,32 @@ public class TakeOrderTest extends ApplicationTest{
     @Test
     void overCountThrowTest() {
         assertSimpleTest(() -> {
-            runException("31","레드와인-21");
+            runException("31","레드와인-2,티본스테이크-20");
             assertThat(output()).contains(ERROR_OVER_COUNT.getForm());
+        });
+    }
+
+    @Test
+    void zeroCountThrowTest() {
+        assertSimpleTest(() -> {
+            runException("31","레드와인-2,티본스테이크-0");
+            assertThat(output()).contains(ERROR_ORDER.getForm());
+        });
+    }
+
+    @Test
+    void minusCountThrowTest() {
+        assertSimpleTest(() -> {
+            runException("31","레드와인-20,티본스테이크--6");
+            assertThat(output()).contains(ERROR_ORDER.getForm());
+        });
+    }
+
+    @Test
+    void invalidMenuThrowTest() {
+        assertSimpleTest(() -> {
+            runException("31","디분스테이크-5");
+            assertThat(output()).contains(ERROR_ORDER.getForm());
         });
     }
 

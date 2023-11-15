@@ -15,6 +15,9 @@ import java.util.List;
 
 public class PreviewBenefits {
 
+    private final int MIN_FREE_CONDITION = 120000;
+    private final int CHAMPAGNE = 25000;
+
     Badge badge;
     PrintOrderSheet printOrderSheet;
     PrintPaymentBeforeDiscount printPaymentBeforeDiscount;
@@ -50,8 +53,8 @@ public class PreviewBenefits {
 
     private int getExpectPayment(OrderSheet orderSheet, AllEvent allEvent) {
         int result = orderSheet.getTotalAmount() + getTotalBenefitAmount(allEvent);
-        if (orderSheet.getTotalAmount() >= 120000)
-            result += 25000;
+        if (orderSheet.getTotalAmount() >= MIN_FREE_CONDITION)
+           result += CHAMPAGNE;
         return result;
     }
 }

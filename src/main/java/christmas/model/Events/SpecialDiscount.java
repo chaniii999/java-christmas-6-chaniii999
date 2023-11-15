@@ -7,15 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpecialDiscount extends Event {
+
+    private final List<Integer> copyValiddays = new ArrayList<>(List.of(1));
+    private final int CHRISTMAS = CHRIST_MAS.getValue();
+    private final int copyDiscount = 1000;
     {
         initEventName = "특별 할인";
-        validDays = new ArrayList<>(List.of(1));
-        discount = 1000;
+        validDays = copyValiddays;
+        discount = copyDiscount;
     }
-
-    private final int CHRISTMAS = CHRIST_MAS.getValue();
-    private final int copyDiscount = discount;
-
 
     @Override
     protected boolean validateDate(int date) {
