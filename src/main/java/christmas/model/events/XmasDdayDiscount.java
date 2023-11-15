@@ -23,6 +23,7 @@ public class XmasDdayDiscount extends Event{
             result++;
         if (startDate <= date && CHRIST_MAS.getValue() >= date)
             result++;
+
         return (result == 2);
     }
 

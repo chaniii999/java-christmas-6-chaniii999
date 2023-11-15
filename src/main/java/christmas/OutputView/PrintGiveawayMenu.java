@@ -11,17 +11,16 @@ public class PrintGiveawayMenu {
 
     public PrintGiveawayMenu(List<Event> events) {
         System.out.println(GIVEAWAY_MENU.getForm());
+
         boolean benefits = false;
 
-        if (!events.isEmpty()) {
+        if (!events.isEmpty())
             benefits = printGiveawayMenu(events);
-            System.out.println();
-        }
 
-        if (!benefits) {
+        if (!benefits)
             System.out.println(NO_BENEFIT.getForm());
-            System.out.println();
-        }
+
+        System.out.println();
     }
 
     private boolean printGiveawayMenu(List<Event> events) {

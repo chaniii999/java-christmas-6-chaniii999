@@ -18,10 +18,9 @@ public class PrintBenefitsDetails {
 
         if (!benefits)
             System.out.println(NO_BENEFIT.getForm());
+
         System.out.println();
     }
-
-
 
     private boolean printBenefitsDetails(List<Event> events) {
         boolean benefit = false;

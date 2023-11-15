@@ -22,10 +22,12 @@ public class WeekendDiscount extends Event {
         List<Integer> sonValidDays = new ArrayList<>(List.of(5, 6));
         int result = 0;
         int day = getDay(date);
+
         if (sonValidDays.contains(day))
             result++;
         if (startDate <= date && endDate >= date)
             result++;
+
         return (result == 2);
     }
 

@@ -24,6 +24,7 @@ public class SpecialDiscount extends Event {
             result++;
         if (startDate <= date && endDate >= date)
             result++;
+
         return (result == 2);
     }
 

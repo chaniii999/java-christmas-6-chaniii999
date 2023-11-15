@@ -18,8 +18,8 @@ public class OrderSheet extends AllMenu {
     private void generateOrderSheet(String[] orderMenu) {
         for (String order : orderMenu) {
             String menuName = order.split(MENU_SEPARATOR)[0];
-
             int count = Integer.parseInt(order.split(MENU_SEPARATOR)[1]);
+
             totalAmount += searchPrice(menuName) * count;
 
             orderSheet.add(new Menu(menuName, searchPrice(menuName), searchType(menuName), count));
